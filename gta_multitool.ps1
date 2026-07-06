@@ -1,4 +1,4 @@
-Add-Type -AssemblyName System.Windows.Forms
+﻿Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 # C# Code for Process Suspend/Resume (will compile only when needed)
