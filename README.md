@@ -1,28 +1,59 @@
-# GTA MultiTool (Blocker & Optimizer)
+# GTA Multi-Tool v2.1.0
 
-Универсальный инструмент (Batch/PowerShell скрипт) для настройки и оптимизации сетевой игры в GTA V и GTA IV на ПК. Позволяет решать проблемы с бесконечными загрузками, улучшать производительность на слабом железе и обходить VPN.
+**[English](#english) | [Русский](#russian)**
 
-## Особенности
+---
 
-1. **SOLO SESSION (Заморозка процесса)**
-   Мгновенно создает пустую публичную сессию (Solo Public Lobby) путем аккуратной заморозки процесса игры ровно на 10 секунд через низкоуровневые вызовы `ntdll.dll`. Никаких вылетов или банов.
+## English
 
-2. **PC OPTIMIZATION (Генератор commandline.txt)**
-   Скрипт анализирует ваше "железо" (ОЗУ, количество ядер ЦП) с помощью WMI и предлагает оптимальные настройки для слабых и средних ПК. Умеет автоматически генерировать и сохранять файл `commandline.txt` в папку с игрой. Поддерживает ручной ввод аргументов.
+Multi-functional utility for GTA V with session management, system optimization, network diagnostics, and in-game overlay.
 
-3. **VPN BYPASS (Привязка к сетевой карте)**
-   Позволяет запускать GTA через конкретный сетевой адаптер (например, через прямой кабель, игнорируя включенный VPN). 
-   *Примечание: Требует наличия утилиты [ForceBindIP](https://r1ch.net/projects/forcebindip) (файлы `ForceBindIP64.exe` и `BindIP64.dll` нужно положить рядом со скриптом).*
+### Features
+- **Session Control** — Block peers, Solo session, Auto-Solo on lobby entry
+- **System Optimization** — commandline.txt, settings.xml, process priority, RAM cleanup
+- **Network** — VPN bypass, DNS management, ping test, route splitting
+- **Overlay HUD** — CPU%, RAM%, GPU%, ping, peers (BattleEye-safe, click-through)
+- **Localization** — English / Русский
 
-4. **Блокировщик портов (Lobby Blocker)**
-   Встроенные правила Брандмауэра Windows для блокировки и разблокировки трафика одной кнопкой.
+### Requirements
+- Windows 10/11 (x64)
+- .NET Framework 4.0+
+- Administrator rights
 
-5. **Очистка кэша и DNS**
-   Помогает при ошибках вида "Не удалось подключиться к серверам Rockstar".
+### Installation
+1. Download latest release from [Releases](../../releases)
+2. Extract to any folder
+3. Run `GTA_MultiTool.exe`
 
-## Требования
-- Windows 7, 8, 10 или 11 (встроенный PowerShell 2.0+)
-- Права Администратора (скрипт запрашивает их автоматически)
+### Safety (BattleEye)
+- No memory reading from game process
+- FPS hardcoded as N/A
+- Uses only system APIs and Microsoft-signed utilities
 
-## Установка и запуск
-Не требует установки. Просто скачайте файл `gta_online_blocker.bat` и запустите его двойным кликом. При первом запуске нажмите `BROWSE` и выберите исполняемый файл игры (`GTA5.exe` или `GTAIV.exe`).
+---
+
+## Русский
+
+Многофункциональная утилита для GTA V с управлением сессиями, оптимизацией системы, сетевой диагностикой и внутриигровым оверлеем.
+
+### Возможности
+- **Управление сессией** — Блокировка пиров, Solo, Авто-Solo при входе
+- **Оптимизация** — commandline.txt, settings.xml, приоритет процесса, очистка RAM
+- **Сеть** — Обход VPN, DNS, пинг, разделение маршрутов
+- **Оверлей** — CPU%, RAM%, GPU%, пинг, пиры (безопасно для BattleEye, click-through)
+- **Локализация** — English / Русский
+
+### Требования
+- Windows 10/11 (x64)
+- .NET Framework 4.0+
+- Права администратора
+
+### Установка
+1. Скачайте последний релиз из [Releases](../../releases)
+2. Распакуйте в любую папку
+3. Запустите `GTA_MultiTool.exe`
+
+### Безопасность (BattleEye)
+- Нет чтения памяти игрового процесса
+- FPS зафиксирован как N/A
+- Используются только системные API и подписанные Microsoft утилиты

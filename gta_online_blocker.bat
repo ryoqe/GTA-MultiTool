@@ -1,10 +1,8 @@
 @echo off
 chcp 65001 >nul
 
-:: Fail-safe against infinite loops
 if "%~1"=="ELEVATED" goto :run_payload
 
-:: Use fsutil to check admin rights (net session fails if Server service is disabled)
 fsutil dirty query %systemdrive% >nul 2>&1
 if %errorLevel% neq 0 (
     echo ??????????? ????? ??????????????...
