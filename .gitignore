@@ -1,8 +1,26 @@
+# Build outputs
+*.exe
+*.pdb
+*.config
+*.manifest
+!gta_multitool.manifest
+
+# IDE
+.vs/
+*.user
+*.suo
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Temp
+*.tmp
+*.bak
+
+# Blocker/Custom
 gta_blocker_paths.conf
-gta_multitool.exe
+gta_multitool.conf
+fix.ps1
 pssuspend.exe
 pssuspend64.exe
-*.bak
-fix.ps1
-gta_multitool.conf
-LICENSE.txt

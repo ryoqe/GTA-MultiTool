@@ -1,0 +1,42 @@
+name: Build Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup .NET Framework
+      uses: microsoft/setup-msbuild@v1.1
+      
+    - name: Build
+      run: |
+        & "C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe" `
+          /target:winexe `
+          /out:GTA_MultiTool.exe `
+          /optimize+ /debug- /platform:anycpu `
+          /win32manifest:gta_multitool.manifest `
+          /reference:System.dll,System.Windows.Forms.dll,System.Drawing.dll,System.Management.dll,System.Xml.dll `
+          src\*.cs
+
+    - name: Download Sysinternals PsSuspend
+      run: |
+        Invoke-WebRequest -Uri "https://live.sysinternals.com/pssuspend.exe" -OutFile "pssuspend.exe"
+        Invoke-WebRequest -Uri "https://live.sysinternals.com/pssuspend64.exe" -OutFile "pssuspend64.exe"
+    
+    - name: Create Archive
+      run: |
+        Compress-Archive -Path GTA_MultiTool.exe,README.md,LICENSE,pssuspend.exe,pssuspend64.exe -DestinationPath GTA_MultiTool_${{ github.ref_name }}.zip
+    
+    - name: Upload Release
+      uses: softprops/action-gh-release@v1
+      with:
+        files: GTA_MultiTool_${{ github.ref_name }}.zip
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

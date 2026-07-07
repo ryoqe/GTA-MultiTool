@@ -25,20 +25,7 @@ echo Compiling multi-file project to gta_multitool.exe...
   /platform:anycpu ^
   /win32manifest:gta_multitool.manifest ^
   /reference:System.dll,System.Windows.Forms.dll,System.Drawing.dll,System.Management.dll,System.Xml.dll ^
-  I18n.cs ^
-  Program.cs ^
-  Theme.cs ^
-  ConfigManager.cs ^
-  NativeMethods.cs ^
-  CustomControls.cs ^
-  ProcessManager.cs ^
-  FirewallManager.cs ^
-  GameController.cs ^
-  SystemAnalyzer.cs ^
-  NetworkTools.cs ^
-  RegistryTools.cs ^
-  OverlayForm.cs ^
-  MainForm.cs
+  src\*.cs
 
 if %errorlevel% equ 0 (
     echo [SUCCESS] File gta_multitool.exe successfully created!
